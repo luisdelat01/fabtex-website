@@ -33,7 +33,7 @@ const Problem: React.FC = () => {
   ];
 
   return (
-    <section className="bg-light-gray py-20 lg:py-28">
+    <section id="how-it-works" className="bg-light-gray py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Section Header */}

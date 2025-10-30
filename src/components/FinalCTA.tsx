@@ -24,7 +24,7 @@ const FinalCTA: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-brand-purple via-brand-purple to-brand-purple/90 py-20 lg:py-28">
+    <section id="demo" className="bg-gradient-to-br from-brand-purple via-brand-purple to-brand-purple/90 py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         <div className="max-w-4xl mx-auto">

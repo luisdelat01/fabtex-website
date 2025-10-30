@@ -3,7 +3,7 @@ import React from 'react';
 
 const SocialProof: React.FC = () => {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section id="testimonials" className="bg-white py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Testimonial Block */}
