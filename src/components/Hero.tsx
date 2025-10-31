@@ -3,17 +3,40 @@ import FloatingCards from './FloatingCards';
 export default function Hero() {
   return (
     <section className="relative bg-gradient-to-br from-[#2E1A47] via-[#3d2458] to-[#2E1A47] text-white overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-5">
+
+      {/* Subtle textile weave texture */}
+      <div
+        className="absolute inset-0 opacity-[0.08]"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(
+              90deg,
+              rgba(255,255,255,0.03) 0px,
+              transparent 1px,
+              transparent 3px
+            ),
+            repeating-linear-gradient(
+              0deg,
+              rgba(255,255,255,0.03) 0px,
+              transparent 1px,
+              transparent 3px
+            )
+          `,
+          backgroundSize: '3px 3px'
+        }}
+      />
+
+      {/* Subtle dot pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-          backgroundSize: '32px 32px'
+          backgroundSize: '24px 24px'
         }} />
       </div>
 
       <div className="container-custom py-20 md:py-32 lg:py-40 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
+
           {/* LEFT SIDE: Content */}
           <div className="space-y-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -21,7 +44,7 @@ export default function Hero() {
               <br />
               <span className="text-[#3DBFB3]">Textile Manufacturing</span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl">
               AI-powered intelligence that helps your team sell smarter, makes your factory stand out with professional service, and shifts your operation from reactive to proactive.
             </p>
@@ -35,7 +58,7 @@ export default function Hero() {
                 </div>
                 <p className="text-white/90">Get visibility into your sales operation so you can take action based on real data</p>
               </div>
-              
+
               <div className="flex items-start gap-3">
                 <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-[#3DBFB3]/20 flex items-center justify-center">
                   <svg className="w-4 h-4 text-[#3DBFB3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -44,7 +67,7 @@ export default function Hero() {
                 </div>
                 <p className="text-white/90">AI coaches your reps to make smart selections and ask the right questions</p>
               </div>
-              
+
               <div className="flex items-start gap-3">
                 <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-[#3DBFB3]/20 flex items-center justify-center">
                   <svg className="w-4 h-4 text-[#3DBFB3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
