@@ -44,7 +44,7 @@ const Problem: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="bg-white py-20 lg:py-28">
+    <section id="how-it-works" className="bg-mint-teal py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -65,7 +65,7 @@ const Problem: React.FC = () => {
             <div 
               key={index}
               ref={cardAnimations[index].ref as React.RefObject<HTMLDivElement>}
-              className={`bg-white rounded-lg p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-default fade-in-up ${staggerClasses[index]} ${cardAnimations[index].isVisible ? 'visible' : ''}`}
+              className={`bg-white rounded-lg p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-default fade-in-up ${staggerClasses[index]} ${cardAnimations[index].isVisible ? 'visible' : ''}`}
             >
               {/* Icon */}
               <div className="w-16 h-16 bg-mint-teal/50 rounded-xl flex items-center justify-center text-brand-purple mb-6 border border-mint-teal/70">
@@ -88,7 +88,7 @@ const Problem: React.FC = () => {
 
         {/* Result Statement */}
         <div className="mt-16 text-center max-w-4xl mx-auto">
-          <div ref={resultAnim.ref as React.RefObject<HTMLDivElement>} className={`bg-gradient-to-r from-brand-purple/5 to-vibrant-teal/5 rounded-2xl border-2 border-golden-amber/40 p-8 fade-in-up stagger-4 ${resultAnim.isVisible ? 'visible' : ''} relative overflow-hidden`}>
+          <div ref={resultAnim.ref as React.RefObject<HTMLDivElement>} className={`bg-vibrant-teal rounded-2xl border-2 border-golden-amber/40 p-8 fade-in-up stagger-4 ${resultAnim.isVisible ? 'visible' : ''} relative overflow-hidden`}>
             {/* Golden amber accent border glow */}
             <div className="absolute inset-0 rounded-2xl border-2 border-golden-amber/20 pointer-events-none"></div>
             <p className="text-lg text-dark-slate relative z-10">

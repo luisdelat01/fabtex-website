@@ -92,7 +92,7 @@ const ProfessionalService: React.FC = () => {
             <div 
               key={index}
               ref={ref.ref as React.RefObject<HTMLDivElement>}
-              className={`bg-white rounded-xl border border-gray-200 shadow-lg p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer fade-in-up ${staggerClasses[index]} ${ref.isVisible ? 'visible' : ''}`}
+              className={`bg-white rounded-xl border border-gray-200 shadow-lg p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer fade-in-up ${staggerClasses[index]} ${ref.isVisible ? 'visible' : ''}`}
             >
               <div className="flex items-start gap-4">
                 {/* Icon */}

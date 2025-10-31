@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
               ref={ctaAnimation.ref as React.RefObject<HTMLDivElement>}
               className={`pt-4 fade-in-up stagger-4 ${ctaAnimation.isVisible ? 'visible' : ''}`}
             >
-              <button className="bg-vibrant-teal hover:bg-link-teal text-brand-purple font-semibold px-8 py-4 sm:py-3 lg:py-4 rounded-lg text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 shadow-lg border-2 border-transparent hover:border-golden-amber hover:shadow-[0_0_20px_rgba(232,167,101,0.4)] min-h-[44px]">
+              <button className="bg-vibrant-teal hover:bg-link-teal text-brand-purple font-semibold px-8 py-4 sm:py-3 lg:py-4 rounded-lg text-lg transition-transform duration-200 hover:scale-105 hover:shadow-lg active:scale-95 shadow-lg border-2 border-transparent hover:border-golden-amber hover:shadow-[0_0_20px_rgba(232,167,101,0.4)] min-h-[44px]">
                 Book a Demo
               </button>
             </div>

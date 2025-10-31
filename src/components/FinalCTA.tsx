@@ -80,7 +80,7 @@ const FinalCTA: React.FC = () => {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6 md:grid md:grid-cols-2 md:gap-6 md:space-y-0">
+            <form id="demo-form" onSubmit={handleSubmit} className="space-y-6 md:grid md:grid-cols-2 md:gap-6 md:space-y-0">
               
               {/* Success Message - Full width */}
               {showSuccess && (
@@ -163,7 +163,7 @@ const FinalCTA: React.FC = () => {
               >
                 <button
                   type="submit"
-                  className="btn-primary w-full py-4 px-8 text-lg font-bold min-h-[44px] transition-all duration-200 hover:scale-105 active:scale-95"
+                  className="btn-primary w-full py-4 px-8 text-lg font-bold min-h-[44px] transition-transform duration-200 hover:scale-105 hover:shadow-lg active:scale-95"
                 >
                   Book Your Demo
                 </button>
