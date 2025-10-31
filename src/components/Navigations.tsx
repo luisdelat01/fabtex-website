@@ -44,13 +44,13 @@ const Navigation: React.FC = () => {
               <img 
                 src="/Images/Logo/logo-color.png" 
                 alt="FabTex" 
-                className="hidden md:block h-8 w-auto"
+                className="hidden md:block h-12 w-auto"
               />
               {/* Mobile Logo - Icon Only */}
               <img 
                 src="/Images/Logo/icon-color.png" 
                 alt="FabTex" 
-                className="md:hidden h-8 w-8 object-contain"
+                className="md:hidden h-10 w-10 object-contain"
               />
             </a>
           </div>
