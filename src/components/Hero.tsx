@@ -6,18 +6,18 @@ export default function Hero() {
       
       {/* Subtle textile weave texture */}
       <div 
-        className="absolute inset-0 opacity-[0.15]"
+        className="absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage: `
             repeating-linear-gradient(
               90deg,
-              rgba(255,255,255,0.1) 0px,
+              rgba(255,255,255,0.2) 0px,
               transparent 1px,
               transparent 4px
             ),
             repeating-linear-gradient(
               0deg,
-              rgba(255,255,255,0.1) 0px,
+              rgba(255,255,255,0.2) 0px,
               transparent 1px,
               transparent 4px
             )
@@ -34,7 +34,7 @@ export default function Hero() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               The CRM Built for
               <br />
-              <span className="text-[#3DBFB3]">Textile Manufacturing</span>
+              <span>Textile Manufacturing</span>
             </h1>
             
             <p className="text-lg md:text-xl text-white/80 leading-relaxed">
