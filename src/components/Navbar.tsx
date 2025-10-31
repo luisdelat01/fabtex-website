@@ -1,69 +1,83 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react';
+import { useActiveSection } from '../hooks/useActiveSection';
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const activeSection = useActiveSection();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleAudienceScroll = (event: MouseEvent<HTMLAnchorElement>, hash: string) => {
+    event.preventDefault();
+    window.location.hash = hash;
+
+    const audienceSection = document.getElementById('audience');
+    audienceSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleDemoClick = () => {
+    document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white shadow-md' 
-        : 'bg-transparent'
-    }`}>
+    <nav
+      aria-label="Primary"
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${activeSection.navbarTextColor}`}
+      style={{
+        backgroundColor: activeSection.navbarBg,
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+        boxShadow: isScrolled ? '0 4px 6px -1px rgba(0, 0, 0, 0.1)' : 'none',
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <img 
-              src="/Images/Logo/logo-color.png" 
-              alt="FabTex Logo" 
-              className="h-10 transition-all duration-300"
-            />
+        <div className="flex justify-between items-center h-20">
+          <div className="flex-shrink-0 flex items-center">
+            <a href="/" className="flex items-center" aria-label="FabTex home">
+              <img
+                src={activeSection.logoSrc}
+                alt="FabTex Logo"
+                className="h-10 w-auto transition-all duration-500"
+                style={{ objectFit: 'contain' }}
+              />
+            </a>
           </div>
 
-          {/* Nav Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="transition-all duration-200 text-dark-slate hover:text-brand-purple hover:scale-105 hover:shadow-lg">
+            <a
+              href="#features"
+              className="font-medium transition-all duration-200 hover:scale-105 hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-vibrant-teal focus-visible:ring-offset-2"
+            >
               Features
             </a>
-            <a 
-              href="#factories" 
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.hash = '#factories';
-                const element = document.getElementById('audience');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
-              className="transition-all duration-200 text-dark-slate hover:text-brand-purple hover:scale-105 hover:shadow-lg"
+            <a
+              href="#factories"
+              onClick={(event) => handleAudienceScroll(event, '#factories')}
+              className="font-medium transition-all duration-200 hover:scale-105 hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-vibrant-teal focus-visible:ring-offset-2"
             >
               For Factories
             </a>
-            <a 
-              href="#agents" 
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.hash = '#agents';
-                const element = document.getElementById('audience');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
-              className="transition-all duration-200 text-dark-slate hover:text-brand-purple hover:scale-105 hover:shadow-lg"
+            <a
+              href="#agents"
+              onClick={(event) => handleAudienceScroll(event, '#agents')}
+              className="font-medium transition-all duration-200 hover:scale-105 hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-vibrant-teal focus-visible:ring-offset-2"
             >
               For Agents
             </a>
-            <button 
-              onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-vibrant-teal text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95"
+            <button
+              type="button"
+              onClick={handleDemoClick}
+              className="bg-vibrant-teal text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 hover:bg-link-teal focus:outline-none focus-visible:ring-2 focus-visible:ring-vibrant-teal focus-visible:ring-offset-2"
             >
               Book Demo
             </button>
@@ -71,6 +85,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
-
