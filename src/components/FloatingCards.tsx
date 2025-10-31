@@ -2,13 +2,13 @@ import FloatingCard from './FloatingCard';
 
 export default function FloatingCards() {
   return (
-    <div className="relative h-[600px] w-full">
+    <div className="relative h-[650px] w-full">
       
       {/* Card 1: AI Suggestion - Top Right */}
       <FloatingCard
-        className="absolute top-0 right-0 w-72"
+        className="absolute top-4 right-4 w-72 z-30"
         delay="0s"
-        rotation={-3}
+        rotation={-2}
       >
         <div className="bg-white rounded-xl p-5 shadow-2xl">
           <div className="flex items-center gap-2 mb-3">
@@ -37,11 +37,11 @@ export default function FloatingCards() {
         </div>
       </FloatingCard>
 
-      {/* Card 2: Deal Pipeline - Center Left */}
+      {/* Card 2: Deal Pipeline - Center */}
       <FloatingCard
-        className="absolute top-32 left-0 w-80"
+        className="absolute top-52 left-1/2 -translate-x-1/2 w-80 z-20"
         delay="0.5s"
-        rotation={2}
+        rotation={1}
       >
         <div className="bg-white rounded-xl p-5 shadow-2xl">
           <div className="flex items-center justify-between mb-4">
@@ -76,9 +76,9 @@ export default function FloatingCards() {
 
       {/* Card 3: Relationship Health - Bottom Right */}
       <FloatingCard
-        className="absolute bottom-0 right-8 w-72"
+        className="absolute bottom-12 right-12 w-72 z-10"
         delay="1s"
-        rotation={-2}
+        rotation={-1}
       >
         <div className="bg-white rounded-xl p-5 shadow-2xl">
           <h3 className="text-sm font-semibold text-[#1A1A2E] mb-4">Customer Health</h3>
