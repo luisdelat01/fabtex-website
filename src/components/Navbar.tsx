@@ -43,13 +43,21 @@ export default function Navbar() {
       <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
-            <a href="/" className="flex items-center gap-2.5" aria-label="FabTex home">
+            <a
+              href="/"
+              className="flex items-center gap-2.5 hover:opacity-80 transition-opacity duration-200"
+              aria-label="FabTex home"
+            >
               <img
                 src={activeSection.iconSrc}
                 alt="Fabtex"
                 className="h-8 w-8 transition-all duration-500"
+                style={{ objectFit: 'contain' }}
               />
-              <span className="text-xl font-bold uppercase tracking-tight">
+              <span
+                className="text-xl font-bold uppercase tracking-tight"
+                style={{ fontFamily: 'Manrope, sans-serif' }}
+              >
                 Fabtex
               </span>
             </a>
