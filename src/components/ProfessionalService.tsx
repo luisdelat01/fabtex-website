@@ -1,7 +1,18 @@
 // Professional Service section - Modern service differentiation
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ProfessionalService: React.FC = () => {
+  // Animation refs
+  const badgeRef = useScrollAnimation();
+  const headingRef = useScrollAnimation();
+  const subtitleRef = useScrollAnimation();
+  const feature1Ref = useScrollAnimation();
+  const feature2Ref = useScrollAnimation();
+  const feature3Ref = useScrollAnimation();
+  const feature4Ref = useScrollAnimation();
+  const visualExampleRef = useScrollAnimation();
+  const bottomCalloutRef = useScrollAnimation();
   const serviceFeatures = [
     {
       icon: (
@@ -43,28 +54,49 @@ const ProfessionalService: React.FC = () => {
 
   return (
     <section className="bg-light-gray py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-brand-purple mb-6">
+          {/* Section Badge */}
+          <div 
+            ref={badgeRef.ref as React.RefObject<HTMLDivElement>}
+            className={`inline-flex items-center justify-center mb-6 fade-in-up ${badgeRef.isVisible ? 'visible' : ''}`}
+          >
+            <span className="bg-golden-amber/10 text-golden-amber font-bold px-4 py-2 rounded-full text-sm uppercase tracking-wide border border-golden-amber/20">
+              Service Excellence
+            </span>
+          </div>
+          <h2 
+            ref={headingRef.ref as React.RefObject<HTMLHeadingElement>}
+            className={`text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-purple mb-6 fade-in-up stagger-1 ${headingRef.isVisible ? 'visible' : ''}`}
+          >
             Modern Service That Makes Buyers Want to Work With You
           </h2>
-          <p className="text-xl text-soft-slate leading-relaxed">
+          <p 
+            ref={subtitleRef.ref as React.RefObject<HTMLParagraphElement>}
+            className={`text-lg sm:text-lg md:text-xl text-soft-slate leading-relaxed fade-in-up stagger-2 ${subtitleRef.isVisible ? 'visible' : ''}`}
+          >
             When everyone has similar products, you differentiate through service. Professional, modern service matters — especially as buyers get younger and expect better experiences.
           </p>
         </div>
 
         {/* Service Features Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {serviceFeatures.map((feature, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {serviceFeatures.map((feature, index) => {
+            const featureRefs = [feature1Ref, feature2Ref, feature3Ref, feature4Ref];
+            const staggerClasses = ['stagger-1', 'stagger-2', 'stagger-3', 'stagger-4'];
+            const ref = featureRefs[index];
+            
+            return (
             <div 
               key={index}
-              className="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-lg transition-shadow duration-300"
+              ref={ref.ref as React.RefObject<HTMLDivElement>}
+              className={`bg-white rounded-xl border border-gray-200 shadow-lg p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer fade-in-up ${staggerClasses[index]} ${ref.isVisible ? 'visible' : ''}`}
             >
               <div className="flex items-start gap-4">
                 {/* Icon */}
-                <div className="flex-shrink-0 w-12 h-12 bg-vibrant-teal/10 rounded-lg flex items-center justify-center text-vibrant-teal">
+                <div className="flex-shrink-0 w-12 h-12 bg-golden-amber/10 rounded-lg flex items-center justify-center text-golden-amber">
                   {feature.icon}
                 </div>
                 
@@ -78,11 +110,15 @@ const ProfessionalService: React.FC = () => {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Visual Example Placeholder */}
-        <div className="max-w-5xl mx-auto">
+        <div 
+          ref={visualExampleRef.ref as React.RefObject<HTMLDivElement>}
+          className={`max-w-5xl mx-auto fade-in-up stagger-4 ${visualExampleRef.isVisible ? 'visible' : ''}`}
+        >
           <div className="bg-white rounded-2xl border-2 border-brand-purple/10 p-12 shadow-xl">
             <div className="text-center space-y-4 mb-8">
               <h3 className="text-2xl font-bold text-brand-purple">
@@ -109,7 +145,10 @@ const ProfessionalService: React.FC = () => {
         </div>
 
         {/* Bottom Callout */}
-        <div className="mt-16 text-center max-w-4xl mx-auto">
+        <div 
+          ref={bottomCalloutRef.ref as React.RefObject<HTMLDivElement>}
+          className={`mt-16 text-center max-w-4xl mx-auto fade-in-up stagger-4 ${bottomCalloutRef.isVisible ? 'visible' : ''}`}
+        >
           <p className="text-xl text-dark-slate">
             <span className="font-semibold text-brand-purple">This is how you differentiate</span> when everyone has similar products — through modern, buyer-friendly service that makes you the easy choice.
           </p>

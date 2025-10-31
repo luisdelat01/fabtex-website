@@ -1,7 +1,20 @@
 // Features section - The 3 AI superpowers with alternating layouts
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Features: React.FC = () => {
+  // Header animations
+  const headerAnimation = useScrollAnimation();
+  const subtitleAnimation = useScrollAnimation();
+  
+  // Feature animations
+  const feature1TextAnimation = useScrollAnimation();
+  const feature1VisualAnimation = useScrollAnimation();
+  const feature2TextAnimation = useScrollAnimation();
+  const feature2VisualAnimation = useScrollAnimation();
+  const feature3TextAnimation = useScrollAnimation();
+  const feature3VisualAnimation = useScrollAnimation();
+
   const features = [
     {
       title: "Smart Selection & Request Intelligence",
@@ -43,40 +56,60 @@ const Features: React.FC = () => {
 
   return (
     <section id="features" className="bg-white py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold text-brand-purple mb-6">
+          <h2 
+            ref={headerAnimation.ref}
+            className={`text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-purple mb-6 fade-in-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+          >
             Sales Intelligence Built for Textiles
           </h2>
-          <p className="text-xl text-soft-slate leading-relaxed">
+          <p 
+            ref={subtitleAnimation.ref}
+            className={`text-lg sm:text-lg md:text-xl text-soft-slate leading-relaxed fade-in-up stagger-1 ${subtitleAnimation.isVisible ? 'visible' : ''}`}
+          >
             AI-powered features that coach your team to sell like experts, make smart selections, and manage relationships proactively.
           </p>
         </div>
 
         {/* Feature Blocks - Alternating Layout */}
-        <div className="space-y-32">
+        <div className="space-y-20 md:space-y-24 lg:space-y-32">
           {features.map((feature, index) => {
             const isEven = index % 2 === 0;
+            
+            // Get animation hooks based on feature index
+            const textAnimation = index === 0 ? feature1TextAnimation : index === 1 ? feature2TextAnimation : feature3TextAnimation;
+            const visualAnimation = index === 0 ? feature1VisualAnimation : index === 1 ? feature2VisualAnimation : feature3VisualAnimation;
+            
+            // Determine animation direction based on feature
+            // Feature 1: text fade-in-left, visual fade-in-right
+            // Feature 2: text fade-in-right, visual fade-in-left
+            // Feature 3: text fade-in-left, visual fade-in-right
+            const textAnimationClass = (index === 0 || index === 2) ? 'fade-in-left' : 'fade-in-right';
+            const visualAnimationClass = (index === 0 || index === 2) ? 'fade-in-right' : 'fade-in-left';
             
             return (
               <div 
                 key={index}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? 'lg:grid-flow-dense' : ''}`}
+                className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${!isEven ? 'md:grid-flow-dense' : ''}`}
               >
-                {/* Text Content */}
-                <div className={`space-y-6 ${!isEven ? 'lg:col-start-2' : ''}`}>
+                {/* Text Content - Always first on mobile */}
+                <div 
+                  ref={textAnimation.ref}
+                  className={`space-y-6 order-1 ${!isEven ? 'md:col-start-2 md:order-2' : 'md:order-1'} ${textAnimationClass} ${textAnimation.isVisible ? 'visible' : ''} ${index % 2 === 1 ? 'md:bg-mint-teal/30 rounded-2xl p-8' : ''}`}
+                >
                   {/* Feature Number Badge */}
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-vibrant-teal/10 text-vibrant-teal font-bold text-xl">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-golden-amber/10 text-golden-amber font-bold text-xl border border-golden-amber/20">
                     {index + 1}
                   </div>
                   
-                  <h3 className="text-3xl lg:text-4xl font-bold text-brand-purple">
+                  <h3 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-brand-purple">
                     {feature.title}
                   </h3>
                   
-                  <p className="text-lg text-soft-slate leading-relaxed">
+                  <p className="text-base sm:text-base md:text-lg text-soft-slate leading-relaxed">
                     {feature.description}
                   </p>
                   
@@ -95,10 +128,13 @@ const Features: React.FC = () => {
                   </ul>
                 </div>
 
-                {/* Screenshot Placeholder */}
-                <div className={!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}>
+                {/* Screenshot Placeholder - Always second on mobile, full width on mobile, 50% on desktop */}
+                <div 
+                  ref={visualAnimation.ref}
+                  className={`order-2 w-full md:w-auto ${!isEven ? 'md:col-start-1 md:row-start-1 md:order-1' : 'md:order-2'} ${visualAnimationClass} ${visualAnimation.isVisible ? 'visible' : ''}`}
+                >
                   <div className="relative">
-                    <div className="bg-gradient-to-br from-brand-purple/5 to-vibrant-teal/5 rounded-2xl border-2 border-brand-purple/10 aspect-[4/3] flex items-center justify-center p-8">
+                    <div className="bg-gradient-to-br from-brand-purple/5 to-vibrant-teal/5 rounded-2xl border-2 border-brand-purple/10 aspect-[4/3] flex items-center justify-center p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl w-full">
                       <div className="text-center space-y-3">
                         <div className="w-20 h-20 mx-auto bg-brand-purple/10 rounded-xl flex items-center justify-center">
                           <svg className="w-10 h-10 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -127,8 +163,10 @@ const Features: React.FC = () => {
 
         {/* Key Benefit Callout */}
         <div className="mt-24 text-center max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-brand-purple to-brand-purple/90 rounded-2xl p-10 text-white shadow-2xl">
-            <p className="text-xl lg:text-2xl leading-relaxed">
+          <div className="bg-gradient-to-r from-brand-purple to-brand-purple/90 rounded-2xl p-10 text-white shadow-2xl border-2 border-golden-amber/40 relative overflow-hidden">
+            {/* Golden amber accent border glow */}
+            <div className="absolute inset-0 rounded-2xl border-2 border-golden-amber/20 pointer-events-none"></div>
+            <p className="text-xl lg:text-2xl leading-relaxed relative z-10">
               This is how you improve your sales operation — with intelligence that coaches your team, complete visibility to take action, and professional service that makes your factory stand out.
             </p>
           </div>

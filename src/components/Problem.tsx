@@ -1,7 +1,12 @@
 // Problem section - Explains why there's no good software for textile sales
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Problem: React.FC = () => {
+  const headlineAnim = useScrollAnimation();
+  const subtitleAnim = useScrollAnimation();
+  const resultAnim = useScrollAnimation();
+
   const painPoints = [
     {
       title: "Generic CRMs Don't Understand Textiles",
@@ -32,29 +37,38 @@ const Problem: React.FC = () => {
     }
   ];
 
+  const cardAnimations = [
+    useScrollAnimation(),
+    useScrollAnimation(),
+    useScrollAnimation()
+  ];
+
   return (
-    <section id="how-it-works" className="bg-light-gray py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="how-it-works" className="bg-white py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-brand-purple mb-6">
+          <h2 ref={headlineAnim.ref as React.RefObject<HTMLHeadingElement>} className={`text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-purple mb-6 fade-in-up ${headlineAnim.isVisible ? 'visible' : ''}`}>
             There's No Good Software Built for Textile Sales
           </h2>
-          <p className="text-xl text-soft-slate leading-relaxed">
+          <p ref={subtitleAnim.ref as React.RefObject<HTMLParagraphElement>} className={`text-lg sm:text-lg md:text-xl text-soft-slate leading-relaxed fade-in-up stagger-1 ${subtitleAnim.isVisible ? 'visible' : ''}`}>
             Second and third-generation factory leaders already know this. You're managing complex relationships with tools built for different industries.
           </p>
         </div>
 
         {/* Pain Point Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {painPoints.map((point, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          {painPoints.map((point, index) => {
+            const staggerClasses = ['stagger-2', 'stagger-3', 'stagger-4'];
+            return (
             <div 
               key={index}
-              className="bg-white rounded-xl border border-gray-200 shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
+              ref={cardAnimations[index].ref as React.RefObject<HTMLDivElement>}
+              className={`bg-white rounded-lg p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-default fade-in-up ${staggerClasses[index]} ${cardAnimations[index].isVisible ? 'visible' : ''}`}
             >
               {/* Icon */}
-              <div className="w-16 h-16 bg-brand-purple/10 rounded-xl flex items-center justify-center text-brand-purple mb-6">
+              <div className="w-16 h-16 bg-mint-teal/50 rounded-xl flex items-center justify-center text-brand-purple mb-6 border border-mint-teal/70">
                 {point.icon}
               </div>
               
@@ -68,13 +82,16 @@ const Problem: React.FC = () => {
                 {point.description}
               </p>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Result Statement */}
         <div className="mt-16 text-center max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-brand-purple/5 to-vibrant-teal/5 rounded-2xl border-2 border-brand-purple/10 p-8">
-            <p className="text-lg text-dark-slate">
+          <div ref={resultAnim.ref as React.RefObject<HTMLDivElement>} className={`bg-gradient-to-r from-brand-purple/5 to-vibrant-teal/5 rounded-2xl border-2 border-golden-amber/40 p-8 fade-in-up stagger-4 ${resultAnim.isVisible ? 'visible' : ''} relative overflow-hidden`}>
+            {/* Golden amber accent border glow */}
+            <div className="absolute inset-0 rounded-2xl border-2 border-golden-amber/20 pointer-events-none"></div>
+            <p className="text-lg text-dark-slate relative z-10">
               <span className="font-semibold text-brand-purple">The result:</span> Limited visibility into your sales operation, reactive teams waiting for buyers to reach out, and missed opportunities because you don't have the intelligence to stay ahead.
             </p>
           </div>

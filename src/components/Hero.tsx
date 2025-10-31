@@ -1,30 +1,49 @@
 // Hero section - Deep purple background with headline, value props, and CTA
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Hero: React.FC = () => {
+  const headlineAnimation = useScrollAnimation();
+  const subheadlineAnimation = useScrollAnimation();
+  const benefit1Animation = useScrollAnimation();
+  const benefit2Animation = useScrollAnimation();
+  const benefit3Animation = useScrollAnimation();
+  const ctaAnimation = useScrollAnimation();
+  const dashboardAnimation = useScrollAnimation();
+
   return (
     <section className="bg-brand-purple min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto px-6 py-20 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="animate-fade-in">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Column - Text Content */}
           <div className="text-white space-y-8">
             
             {/* Main Headline */}
-            <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+            <h1 
+              ref={headlineAnimation.ref as React.RefObject<HTMLHeadingElement>}
+              className={`text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight fade-in-up ${headlineAnimation.isVisible ? 'visible' : ''}`}
+            >
               The CRM Built for Textile Manufacturing
             </h1>
             
             {/* Subheadline */}
-            <p className="text-xl lg:text-2xl text-mint-teal leading-relaxed">
+            <p 
+              ref={subheadlineAnimation.ref as React.RefObject<HTMLParagraphElement>}
+              className={`text-lg sm:text-lg md:text-xl lg:text-2xl text-mint-teal leading-relaxed fade-in-up stagger-1 ${subheadlineAnimation.isVisible ? 'visible' : ''}`}
+            >
               AI-powered intelligence that helps your team sell smarter, makes your factory stand out with professional service, and shifts your operation from reactive to proactive.
             </p>
             
             {/* Three Quick Wins */}
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
+              <div 
+                ref={benefit1Animation.ref as React.RefObject<HTMLDivElement>}
+                className={`flex items-start gap-3 fade-in-up stagger-2 ${benefit1Animation.isVisible ? 'visible' : ''}`}
+              >
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-vibrant-teal flex items-center justify-center mt-1">
-                  <svg className="w-4 h-4 text-brand-purple" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-brand-purple icon-hover" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </div>
@@ -33,9 +52,12 @@ const Hero: React.FC = () => {
                 </p>
               </div>
               
-              <div className="flex items-start gap-3">
+              <div 
+                ref={benefit2Animation.ref as React.RefObject<HTMLDivElement>}
+                className={`flex items-start gap-3 fade-in-up stagger-3 ${benefit2Animation.isVisible ? 'visible' : ''}`}
+              >
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-vibrant-teal flex items-center justify-center mt-1">
-                  <svg className="w-4 h-4 text-brand-purple" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-brand-purple icon-hover" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </div>
@@ -44,9 +66,12 @@ const Hero: React.FC = () => {
                 </p>
               </div>
               
-              <div className="flex items-start gap-3">
+              <div 
+                ref={benefit3Animation.ref as React.RefObject<HTMLDivElement>}
+                className={`flex items-start gap-3 fade-in-up stagger-4 ${benefit3Animation.isVisible ? 'visible' : ''}`}
+              >
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-vibrant-teal flex items-center justify-center mt-1">
-                  <svg className="w-4 h-4 text-brand-purple" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-brand-purple icon-hover" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </div>
@@ -57,19 +82,25 @@ const Hero: React.FC = () => {
             </div>
             
             {/* CTA Button */}
-            <div className="pt-4">
-              <button className="bg-vibrant-teal hover:bg-link-teal text-brand-purple font-semibold px-8 py-4 rounded-lg text-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
+            <div 
+              ref={ctaAnimation.ref as React.RefObject<HTMLDivElement>}
+              className={`pt-4 fade-in-up stagger-4 ${ctaAnimation.isVisible ? 'visible' : ''}`}
+            >
+              <button className="bg-vibrant-teal hover:bg-link-teal text-brand-purple font-semibold px-8 py-4 sm:py-3 lg:py-4 rounded-lg text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 shadow-lg border-2 border-transparent hover:border-golden-amber hover:shadow-[0_0_20px_rgba(232,167,101,0.4)] min-h-[44px]">
                 Book a Demo
               </button>
             </div>
           </div>
           
           {/* Right Column - Dashboard Screenshot Placeholder */}
-          <div className="relative">
+          <div 
+            ref={dashboardAnimation.ref as React.RefObject<HTMLDivElement>}
+            className={`relative fade-in-right ${dashboardAnimation.isVisible ? 'visible' : ''}`}
+          >
             <div className="bg-gradient-to-br from-vibrant-teal/20 to-mint-teal/10 rounded-2xl border-2 border-vibrant-teal/30 aspect-[4/3] flex items-center justify-center backdrop-blur-sm">
               <div className="text-center space-y-3 p-8">
                 <div className="w-20 h-20 mx-auto bg-vibrant-teal/30 rounded-xl flex items-center justify-center">
-                  <svg className="w-10 h-10 text-vibrant-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-10 h-10 text-vibrant-teal icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
@@ -87,6 +118,7 @@ const Hero: React.FC = () => {
             <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-vibrant-teal/20 rounded-full blur-2xl"></div>
           </div>
           
+        </div>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Optional: Add smooth scrolling */
+/* Smooth Scrolling */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -10,5 +10,122 @@
   
   body {
     @apply text-dark-slate;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes underlineFromLeft {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Shimmer animation for skeleton loaders */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Micro-Interactions & Polish */
+@layer components {
+  /* Button Interactions - .btn-primary */
+  .btn-primary {
+    @apply bg-vibrant-teal text-brand-purple font-semibold px-6 py-3 rounded-lg transition-all duration-200 ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    @apply scale-105 shadow-lg;
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.95);
+  }
+  
+  /* Link Hover Animations - .link-underline */
+  .link-underline {
+    @apply relative;
+  }
+  
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #4FD1C5;
+    transition: width 0.3s ease;
+  }
+  
+  .link-underline:hover::after {
+    width: 100%;
+  }
+  
+  /* Icon Hover Effects - .icon-hover */
+  .icon-hover {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  .icon-hover:hover {
+    transform: scale(1.1) rotate(3deg);
+  }
+  
+  /* Input Focus States */
+  input, textarea, select {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    @apply ring-2 ring-vibrant-teal border-vibrant-teal outline-none;
+  }
+  
+  /* Loading States - Skeleton Loaders */
+  .skeleton {
+    @apply bg-gray-200 animate-pulse;
+    background: linear-gradient(
+      90deg,
+      #e5e7eb 0px,
+      #f3f4f6 40px,
+      #e5e7eb 80px
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+  }
+  
+  /* Card Hover Effect */
+  .card-hover {
+    @apply shadow-md transition-all duration-300;
+  }
+  
+  .card-hover:hover {
+    @apply shadow-xl -translate-y-1;
+    transform: translateY(-4px);
   }
 }

@@ -1,0 +1,34 @@
+When making code changes:
+
+1. ONLY modify exactly what is specified in the prompt
+2. DO NOT change colors, spacing, or styling unless explicitly asked
+3. DO NOT remove working content
+4. DO NOT modify files not mentioned in the prompt
+5. PRESERVE all existing classes and functionality
+6. If you cannot make the change surgically, respond "Cannot complete safely" with explanation
+
+## Verification Required
+
+Before completing any task:
+- Verify you only changed what was requested
+- Check that no working code was removed
+- Ensure all existing styles are preserved
+- Confirm no unintended side effects
+
+## Style Changes Forbidden Unless Requested
+
+DO NOT change:
+- Colors (bg-, text-, border- classes)
+- Spacing (p-, m-, gap- classes)
+- Font sizes (text- classes)
+- Any Tailwind classes not explicitly mentioned
+- Content/text unless specifically asked
+
+## When In Doubt
+
+If unclear whether a change is needed:
+- Ask for clarification
+- Make the minimal change possible
+- Document what you changed and why---
+alwaysApply: true
+---
