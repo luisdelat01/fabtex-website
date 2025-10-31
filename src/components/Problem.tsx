@@ -45,7 +45,7 @@ const Problem: React.FC = () => {
 
   return (
     <section id="how-it-works" className="bg-mint-teal py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

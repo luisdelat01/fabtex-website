@@ -42,7 +42,7 @@ const FinalCTA: React.FC = () => {
 
   return (
     <section id="contact" className="bg-gradient-to-br from-brand-purple to-brand-purple-dark py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         
         <div className="max-w-4xl mx-auto">
           

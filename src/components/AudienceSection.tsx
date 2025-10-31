@@ -71,7 +71,7 @@ const AudienceSection: React.FC = () => {
 
   return (
     <section id="audience" className="bg-brand-purple text-white py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Heading */}
         <div className="text-center mb-12">

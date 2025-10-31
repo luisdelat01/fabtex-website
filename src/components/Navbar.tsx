@@ -40,16 +40,18 @@ export default function Navbar() {
         boxShadow: isScrolled ? '0 4px 6px -1px rgba(0, 0, 0, 0.1)' : 'none',
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
-            <a href="/" className="flex items-center" aria-label="FabTex home">
+            <a href="/" className="flex items-center gap-2.5" aria-label="FabTex home">
               <img
-                src={activeSection.logoSrc}
-                alt="FabTex Logo"
-                className="h-10 w-auto transition-all duration-500"
-                style={{ objectFit: 'contain' }}
+                src={activeSection.iconSrc}
+                alt="Fabtex"
+                className="h-8 w-8 transition-all duration-500"
               />
+              <span className="text-xl font-bold uppercase tracking-tight">
+                Fabtex
+              </span>
             </a>
           </div>
 

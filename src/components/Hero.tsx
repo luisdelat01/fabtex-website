@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
 
   return (
     <section className="bg-brand-purple min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-20">
         <div className="animate-fade-in">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-center">
           

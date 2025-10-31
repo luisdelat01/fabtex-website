@@ -15,6 +15,7 @@ interface SectionConfig {
   navbarBg: string;
   navbarTextColor: string;
   logoSrc: string;
+  iconSrc: string;
 }
 
 const SECTION_CONFIGS: SectionConfig[] = [
@@ -24,6 +25,7 @@ const SECTION_CONFIGS: SectionConfig[] = [
     navbarBg: 'rgba(46, 26, 71, 0.85)',
     navbarTextColor: 'text-white',
     logoSrc: '/Images/Logo/logo-white.png',
+    iconSrc: '/Images/Logo/icon-white.png',
   },
   {
     id: 'problem',
@@ -31,6 +33,7 @@ const SECTION_CONFIGS: SectionConfig[] = [
     navbarBg: 'rgba(178, 245, 234, 0.85)',
     navbarTextColor: 'text-brand-purple',
     logoSrc: '/Images/Logo/logo-violet.png',
+    iconSrc: '/Images/Logo/icon-violet.png',
   },
   {
     id: 'features',
@@ -38,6 +41,7 @@ const SECTION_CONFIGS: SectionConfig[] = [
     navbarBg: 'rgba(255, 255, 255, 0.85)',
     navbarTextColor: 'text-dark-slate',
     logoSrc: '/Images/Logo/logo-color.png',
+    iconSrc: '/Images/Logo/icon-color.png',
   },
   {
     id: 'audience',
@@ -45,6 +49,7 @@ const SECTION_CONFIGS: SectionConfig[] = [
     navbarBg: 'rgba(46, 26, 71, 0.85)',
     navbarTextColor: 'text-white',
     logoSrc: '/Images/Logo/logo-white.png',
+    iconSrc: '/Images/Logo/icon-white.png',
   },
   {
     id: 'service',
@@ -52,6 +57,7 @@ const SECTION_CONFIGS: SectionConfig[] = [
     navbarBg: 'rgba(249, 250, 251, 0.85)',
     navbarTextColor: 'text-dark-slate',
     logoSrc: '/Images/Logo/logo-violet.png',
+    iconSrc: '/Images/Logo/icon-violet.png',
   },
   {
     id: 'social-proof',
@@ -59,6 +65,7 @@ const SECTION_CONFIGS: SectionConfig[] = [
     navbarBg: 'rgba(255, 255, 255, 0.85)',
     navbarTextColor: 'text-dark-slate',
     logoSrc: '/Images/Logo/logo-color.png',
+    iconSrc: '/Images/Logo/icon-color.png',
   },
   {
     id: 'cta',
@@ -66,6 +73,7 @@ const SECTION_CONFIGS: SectionConfig[] = [
     navbarBg: 'rgba(46, 26, 71, 0.85)',
     navbarTextColor: 'text-white',
     logoSrc: '/Images/Logo/logo-white.png',
+    iconSrc: '/Images/Logo/icon-white.png',
   },
 ];
 
